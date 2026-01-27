@@ -46,4 +46,59 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.style.background = "rgba(255, 255, 255, 0.95)";
         }
     });
+
+    // Testimonial Swiper Initialization
+    const testimonialSwiper = new Swiper('.testimonial-slider', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        }
+    });
+
+    // "Show More" Toggle Functionality
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+    testimonialCards.forEach(card => {
+        const content = card.querySelector('.testimonial-content');
+        const btn = card.querySelector('.read-more-btn');
+        const p = content.querySelector('p');
+
+        // Check if text is long enough to need a toggle
+        // and show button if yes
+        if (p.scrollHeight > 150) { // Matching CSS max-height
+            btn.style.display = 'block';
+        }
+
+        btn.addEventListener('click', () => {
+            card.classList.toggle('expanded');
+            if (card.classList.contains('expanded')) {
+                btn.textContent = 'Zobrazit méně';
+            } else {
+                btn.textContent = 'Zobrazit více';
+                // Scroll back to card top if it's out of view
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            // Update Swiper height/layout after expansion
+            testimonialSwiper.update();
+        });
+    });
 });

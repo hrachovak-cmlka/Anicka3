@@ -35,7 +35,7 @@
     /* Typography */
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
-    --font-size-hero: clamp(3rem, 7vw + 1rem, 5rem);
+    --font-size-hero: clamp(2rem, 5vw + 1rem, 3.8rem);
     --font-size-h1: clamp(2rem, 4vw + 1rem, 3.5rem);
     --font-size-h2: clamp(1.75rem, 3vw + 1rem, 2.5rem);
     --font-size-h3: clamp(1.5rem, 2vw + 1rem, 2rem);
@@ -431,6 +431,25 @@ p {
     margin: 0 auto var(--spacing-lg);
 }
 
+.about-heading {
+    margin-bottom: var(--spacing-md);
+}
+
+.about-heading .sub-title {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.about-heading .main-title {
+    font-size: var(--font-size-h2);
+    margin-bottom: 0;
+}
+
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -480,10 +499,9 @@ p {
     background: linear-gradient(180deg, var(--white) 0%, #FFF0F3 100%);
 }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
+.testimonial-slider {
+    padding: var(--spacing-md) !important;
+    margin: 0 -1rem;
 }
 
 .testimonial-card {
@@ -492,6 +510,58 @@ p {
     border-radius: var(--radius-lg) 0 var(--radius-lg) 0;
     box-shadow: var(--shadow-sm);
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-content {
+    position: relative;
+    overflow: hidden;
+    max-height: 150px;
+    /* Collapsed height */
+    transition: max-height 0.5s ease;
+    margin-bottom: var(--spacing-sm);
+}
+
+.testimonial-card.expanded .testimonial-content {
+    max-height: 1000px;
+    /* Sufficiently large value */
+}
+
+.testimonial-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(transparent, var(--white));
+    transition: opacity 0.3s ease;
+}
+
+.testimonial-card.expanded .testimonial-content::after {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary-dark);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: var(--spacing-sm);
+    display: none;
+    /* Hidden by default, JS will show if text is long */
+    font-family: inherit;
+    font-size: 0.9rem;
+    align-self: flex-start;
+}
+
+.read-more-btn:hover {
+    text-decoration: underline;
 }
 
 .testimonial-card::before {
@@ -503,29 +573,183 @@ p {
     color: var(--primary-color);
     opacity: 0.2;
     font-family: serif;
+    z-index: 0;
 }
 
 .client-name {
-    margin-top: var(--spacing-sm);
+    margin-top: auto;
     font-weight: 700;
     color: var(--primary-dark);
     display: block;
     text-align: right;
+    z-index: 1;
 }
 
-/* Contact / Footer CTA */
-.footer-cta {
+/* Swiper Navigation Customization */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-dark);
+    transform: scale(0.6);
+    background: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+}
+
+.swiper-pagination-bullet-active {
     background: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    border-radius: var(--radius-lg);
-    margin: var(--spacing-lg) auto;
-    padding: var(--spacing-lg) var(--spacing-md);
-    max-width: 1000px;
 }
 
-.footer-cta h2 {
+/* Contact Section New Layout */
+.contact-section {
+    background: linear-gradient(135deg, #FFF5F7 0%, #FFFFFF 100%);
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    z-index: 1;
+}
+
+.container-narrow {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+.contact-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-color);
+    font-weight: 800;
+}
+
+.contact-info .personal-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.contact-methods {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-methods p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 1.15rem;
+}
+
+.contact-methods i {
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+.contact-methods a {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.contact-methods a:hover {
+    color: var(--primary-dark);
+}
+
+.contact-note {
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 3rem;
+    font-size: 1.1rem;
+    max-width: 400px;
+}
+
+/* Contact Form Card */
+.contact-form-card {
+    background: var(--white);
+    padding: clamp(1.5rem, 5vw, 3rem);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1.1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-md);
+    background: #fafafa;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(255, 154, 139, 0.15);
+}
+
+.btn-submit {
+    width: 100%;
+    background: #2D3E50;
     color: var(--white);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #1a252f;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(45, 62, 80, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .contact-grid {
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 850px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .contact-title {
+        font-size: 3rem;
+        text-align: left;
+    }
+
+    .contact-form-card {
+        padding: 2rem;
+    }
 }
 
 /* Footer */

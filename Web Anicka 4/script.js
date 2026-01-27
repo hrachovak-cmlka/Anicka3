@@ -48,4 +48,62 @@ document.addEventListener('DOMContentLoaded', () => {
             cookieBar.style.display = 'none';
         }
     }
+
+    // Splide Initialization
+    if (document.querySelector('#testimonial-slider')) {
+        const splide = new Splide('#testimonial-slider', {
+            type: 'loop',
+            perPage: 3,
+            perMove: 1,
+            gap: '2rem',
+            breakpoints: {
+                1024: {
+                    perPage: 2,
+                },
+                768: {
+                    perPage: 1,
+                    padding: '10px',
+                },
+            },
+            autoplay: true,
+            interval: 5000,
+            pauseOnHover: true,
+            arrows: true,
+            pagination: true,
+        }).mount();
+    }
+
+    // Show More Functionality
+    const showMoreBtns = document.querySelectorAll('.show-more-btn');
+    showMoreBtns.forEach(btn => {
+        const textElement = btn.previousElementSibling;
+
+        // Check if text is actually overflowing
+        function checkOverflow() {
+            if (textElement.scrollHeight > textElement.clientHeight) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+
+        // Initial check
+        setTimeout(checkOverflow, 200);
+
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.testimonial-card');
+            card.classList.toggle('expanded');
+
+            if (card.classList.contains('expanded')) {
+                btn.textContent = 'Zobrazit méně';
+            } else {
+                btn.textContent = 'Zobrazit více';
+            }
+
+            // Re-layout Splide if it's inside a slider to adjust heights
+            if (window.splide) {
+                // We might need to refresh splide if the height change is drastic
+            }
+        });
+    });
 });
