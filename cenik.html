@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceník | Anna Kreifová</title>
+    <meta name="description"
+        content="Přehled cen za laktační poradenství, nosící poradenství a kraniosakrální biodynamiku. Informace o příspěvcích zdravotních pojišťoven.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .pricing-section {
+            padding: 10rem 0 4rem;
+            background: linear-gradient(135deg, #FFF9F2 0%, #FFFFFF 100%);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card h2 {
+            border-bottom: 2px solid var(--neutral-bg);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .price-name {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .price-value {
+            font-weight: 800;
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            white-space: nowrap;
+        }
+
+        .price-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: block;
+            margin-top: -1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .insurance-info {
+            background: #FFF5EB;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            margin-top: 4rem;
+            border-left: 6px solid #3182CE;
+        }
+
+        .insurance-info h3 {
+            color: #2B6CB0;
+            margin-bottom: 1rem;
+        }
+
+        .transport-info {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--neutral-bg);
+            border-radius: var(--radius-md);
+            font-style: italic;
+        }
+
+        @media (max-width: 480px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="Web Anicka 3/Obrazky/Homepage/Logo.svg" alt="Anna Kreifová Logo"
+                    style="height: 40px; width: auto;">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Úvod</a></li>
+                <li><a href="laktacni-poradenstvi.html" class="nav-link">Laktační poradenství</a></li>
+                <li><a href="kraniosakralni-biodynamika.html" class="nav-link">Kraniosakrální biodynamika</a></li>
+                <li><a href="kurzy.html" class="nav-link">Absolvované kurzy</a></li>
+                <li><a href="cenik.html" class="nav-link">Ceník</a></li>
+                <li><a href="index.html#kontakt" class="btn btn-primary">Kontakt</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pricing-section" style="position: relative; overflow: hidden;">
+        <img src="Web Anicka 3/Obrazky/Biodynamika/vetvicka.png" class="decor-top-left" style="width: 350px; top: 0%;"
+            alt="">
+        <div class="container">
+            <h1 class="text-center fade-up">Ceník služeb</h1>
+
+            <div class="pricing-grid">
+                <!-- Biodynamics -->
+                <div class="pricing-card fade-up">
+                    <h2>Kraniosakrální biodynamika</h2>
+                    <div class="price-item">
+                        <span class="price-name">Dospělý</span>
+                        <span class="price-value">1200 Kč</span>
+                    </div>
+                    <span class="price-desc">90–120 minut</span>
+
+                    <div class="price-item">
+                        <span class="price-name">Dítě</span>
+                        <span class="price-value">800 Kč</span>
+                    </div>
+                    <span class="price-desc">40–60 minut</span>
+
+                    <div class="price-item" style="margin-top: auto; padding-top: 1rem; border-top: 1px dashed #ddd;">
+                        <span class="price-name">Dopravné</span>
+                        <span class="price-value">9 Kč/km</span>
+                    </div>
+                </div>
+
+                <!-- Lactation -->
+                <div class="pricing-card fade-up" style="animation-delay: 0.1s;">
+                    <h2>Laktační a nosící poradenství</h2>
+                    <div class="price-item">
+                        <span class="price-name">Laktační poradenství (1. schůzka)</span>
+                        <span class="price-value">1200 Kč</span>
+                    </div>
+                    <span class="price-desc">Do 120 minut</span>
+
+                    <div class="price-item">
+                        <span class="price-name">Kontrolní návštěva</span>
+                        <span class="price-value">800 Kč/hod</span>
+                    </div>
+
+                    <div class="price-item">
+                        <span class="price-name">Nosící poradenství</span>
+                        <span class="price-value">800 Kč/hod</span>
+                    </div>
+
+                    <div class="price-item">
+                        <span class="price-name">Předporodní příprava</span>
+                        <span class="price-value">2000 Kč</span>
+                    </div>
+                    <span class="price-desc">120–180 minut</span>
+
+                    <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-light);">Případné pomůcky při
+                        poradenství jsou v ceně.</p>
+                </div>
+
+                <!-- Rentals -->
+                <div class="pricing-card fade-up" style="animation-delay: 0.2s;">
+                    <h2>Půjčovna a online poradenství</h2>
+                    <div class="price-item">
+                        <span class="price-name">Online poradenství</span>
+                        <span class="price-value">400 Kč</span>
+                    </div>
+                    <span class="price-desc">30 minut</span>
+
+                    <div class="price-item">
+                        <span class="price-name">Půjčovné šátku / odsávačky</span>
+                        <span class="price-value">100 Kč/týden</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-top: -0.5rem; color: var(--text-light);">+ 1000 Kč vratná záloha
+                    </p>
+
+                    <div class="transport-info" style="margin-top: auto;">
+                        <p>Často se vyskytuji v Brandýse n/L a Čelákovicích, po dohodě možnost počítat dopravné odtud.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insurance-info fade-up">
+                <h3>Příspěvky zdravotních pojišťoven</h3>
+                <p>Služby laktačního poradenství je možné zpětně proplatit u některých zdravotních pojišťoven. Například
+                    <strong>VZP v roce 2024 přispívá částkou až 5 000 Kč</strong>. V případě zájmu se informujte u Vaší
+                    zdravotní pojišťovny.
+                </p>
+                <p style="margin-top: 1.5rem; font-weight: 600; color: #2C5282;">V tíživé životní situaci nabízím
+                    možnost dohodnout se na laktačním poradenství pouze za cenu nákladů na cestu.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Anna Kreifová</h3>
+                    <p>Laktační poradenství a kraniosakrální biodynamika.</p>
+                    <p>IČO: 87440547</p>
+                    <p>Sídlo: Stará Lysá 95</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Rychlé odkazy</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="laktacni-poradenstvi.html">Laktační poradenství</a></li>
+                        <li><a href="kraniosakralni-biodynamika.html">Kraniosakrální biodynamika</a></li>
+                        <li><a href="cenik.html">Ceník</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+420739785181">+420 739 785 181</a></li>
+                        <li><a href="mailto:kreifova.anna@seznam.cz">kreifova.anna@seznam.cz</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Anna Kreifová. Všechna práva vyhrazena.</p>
+                <!-- Odkaz na tvůrce se obvykle dává sem -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

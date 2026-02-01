@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laktační a nosící poradenství | Anna Kreifová</title>
+    <meta name="description"
+        content="Nabízím předporodní přípravu, pomoc při problémech s kojením a poradenství nošení dětí v šátku. Citlivá podpora pro maminky a miminka.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Specific Page Styles */
+        .page-hero {
+            padding: 12rem 0 8rem;
+            background: linear-gradient(135deg, #FFF9F2 0%, #FFFFFF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .page-hero-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .decor-img {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .decor-1 {
+            top: 10%;
+            right: -5%;
+            width: 200px;
+            transform: rotate(15deg);
+        }
+
+        .decor-2 {
+            bottom: 10%;
+            left: -5%;
+            width: 150px;
+            transform: rotate(-20deg);
+        }
+
+        .service-section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .issue-card {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .issue-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .nosici-box {
+            background: var(--neutral-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .experience-list {
+            margin-top: var(--spacing-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .exp-item {
+            background: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-sm);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .steps-container {
+            margin-top: var(--spacing-lg);
+        }
+
+        .step-item {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid #eee;
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .faq-item {
+            margin-bottom: var(--spacing-md);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #fffcfc;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            display: none;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 850px) {
+
+            .page-hero-grid,
+            .nosici-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .page-hero-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .step-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="Web Anicka 3/Obrazky/Homepage/Logo.svg" alt="Anna Kreifová Logo"
+                    style="height: 40px; width: auto;">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Úvod</a></li>
+                <li><a href="laktacni-poradenstvi.html" class="nav-link">Laktační poradenství</a></li>
+                <li><a href="kraniosakralni-biodynamika.html" class="nav-link">Kraniosakrální biodynamika</a></li>
+                <li><a href="kurzy.html" class="nav-link">Absolvované kurzy</a></li>
+                <li><a href="cenik.html" class="nav-link">Ceník</a></li>
+                <li><a href="index.html#kontakt" class="btn btn-primary">Kontakt</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <img src="Web Anicka 3/Obrazky/Biodynamika/vetvicka.png" class="decor-top-left" alt="">
+
+        <img src="Web Anicka 3/Obrazky/Laktacni/9.png" class="decor-img decor-2" alt="dekorace">
+
+        <div class="container">
+            <div class="page-hero-grid">
+                <div class="page-hero-content fade-up">
+                    <span class="sub-title"
+                        style="color: var(--primary-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 1rem;">Odborná
+                        pomoc a podpora</span>
+                    <h1 style="font-size: var(--font-size-h1); margin-bottom: 1.5rem;">Laktační a nosící poradenství
+                    </h1>
+                    <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 2rem;">Provázím ženy na
+                        jejich cestě mateřstvím. Nabízím citlivou podporu, praktické rady a bezpečný prostor pro řešení
+                        všech otázek spojených s kojením a nošením dětí.</p>
+                    <a href="index.html#kontakt" class="btn btn-primary">Objednat poradenství</a>
+                </div>
+                <div class="page-hero-image fade-up">
+                    <img src="Web Anicka 3/Obrazky/Laktacni/HLAVNIILUSTRACE.png" alt="Laktační poradenství"
+                        style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="section">
+        <div class="container">
+            <div class="service-section-title fade-up">
+                <h2>S čím se na mě můžete obrátit</h2>
+            </div>
+
+            <div class="issues-grid">
+                <div class="issue-card fade-up">
+                    <h3>Otázky ke kojení</h3>
+                    <p>Máte problém, na který nenacházíte odpověď. Cítíte se zmatená z množství protichůdných informací
+                        nebo se na kojení teprve připravujete.</p>
+                </div>
+                <div class="issue-card fade-up" style="animation-delay: 0.1s;">
+                    <h3>Pochybnosti ohledně kojení</h3>
+                    <p>Máte pocit, že miminko nepije dostatečně, je neklidné, odtahuje se od prsu nebo hůře spí. Chcete
+                        zkontrolovat přisátí, polohu miminka při kojení nebo se naučit kojit vleže.</p>
+                </div>
+                <div class="issue-card fade-up" style="animation-delay: 0.2s;">
+                    <h3>Konkrétní potíže</h3>
+                    <p>Kojení Vás bolí. Miminko má potíže s přisátím. Chcete se zbavit kloboučků nebo dokrmu. Máte
+                        pocit, že se miminko nekojí tolik, kolik by potřebovalo.</p>
+                </div>
+                <div class="issue-card fade-up" style="animation-delay: 0.3s;">
+                    <h3>Podpora a ujištění</h3>
+                    <p>Potřebujete pochopení, povzbuzení nebo klidné vedení. Řešíte kojení starších dětí.</p>
+                </div>
+            </div>
+
+            <div class="nosici-box fade-up">
+                <div class="nosici-img">
+                    <img src="Web Anicka 3/Obrazky/Laktacni/matkadite.png" alt="Nošení dětí"
+                        style="max-width: 360px; margin: 0 auto; border-radius: 20px;">
+                </div>
+                <div class="nosici-text">
+                    <h2 style="margin-bottom: 1rem;">Poradenství nošení dětí</h2>
+                    <p>Jsem certifikovaná poradkyně nošení dětí. Naučím vás miminko správně uvázat a poradím s nošením.
+                    </p>
+                </div>
+            </div>
+
+            <div class="other-exp fade-up">
+                <h2 class="text-center">Další zkušenosti spojené s mateřstvím</h2>
+                <p class="text-center" style="margin: 0 auto 2rem;">Ráda posdílím vlastní zkušenosti i z těchto oblastí:
+                </p>
+                <div class="experience-list">
+                    <div class="exp-item">bezplenkové metody</div>
+                    <div class="exp-item">spánek miminek</div>
+                    <div class="exp-item">kontaktní rodičovství</div>
+                    <div class="exp-item">BLW (příkrmy)</div>
+                    <div class="exp-item">plánování rodičovství</div>
+                    <div class="exp-item">barefoot</div>
+                    <div class="exp-item">non-toxic přístup</div>
+                    <div class="exp-item">KISS syndrom</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" style="background-color: var(--neutral-bg);">
+        <div class="container">
+            <h2 class="text-center fade-up" style="margin-bottom: var(--spacing-lg);">Jak laktační poradenství probíhá
+            </h2>
+
+            <div class="steps-container">
+                <div class="step-item fade-up" style="position: relative;">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Domluvíme si termín</h3>
+                        <p>Poradenství probíhá nejčastěji u vás doma, můžeme se domluvit i na konzultaci online,
+                            telefonicky nebo e-mailem. Snažím se najít způsob, který vám bude nejpříjemnější.</p>
+                    </div>
+                    <img src="Web Anicka 3/Obrazky/Biodynamika/vetvicka.png" alt=""
+                        style="position: absolute; bottom: -6rem; right: -5rem; width: 585px; opacity: 0.65; transform: rotate(45deg); pointer-events: none; z-index: 1;">
+                </div>
+                <div class="step-item fade-up">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Před prvním setkáním</h3>
+                        <p>Před setkáním vám pošlu informační e-mail, kde najdete základní informace a orientační plán,
+                            který často dokáže pomoci už před prvním setkáním.</p>
+                    </div>
+                </div>
+                <div class="step-item fade-up">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>První setkání</h3>
+                        <p>Na začátku si vyslechnu celý váš příběh a vše, co považujete za důležité. Nemusíte se bát
+                            hodnocení ani tlaku – empatii vnímám v poradenství jako klíčovou. Společně budeme hledat
+                            řešení, které je pro vás reálné. První setkání obvykle trvá 1,5–2 hodiny.</p>
+                    </div>
+                </div>
+                <div class="step-item fade-up">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Podpora</h3>
+                        <p>Součástí spolupráce je i následná podpora. Můžete mi kdykoliv napsat, když si nebudete jistá
+                            nebo vás něco znepokojí. Pokud zrovna nebudu moci odpovědět hned, ozvu se, jakmile to bude
+                            možné. Tato podpora je v ceně poradenství.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="fade-up"
+                style="margin-top: 3rem; font-size: 0.95rem; font-style: italic; color: var(--text-light);">Při
+                laktačním poradenství pracuji s evidence based informacemi a řídím se mezinárodním etickým kodexem
+                marketingu náhrad mateřského mléka. Případné podklady vám ráda poskytnu.</p>
+        </div>
+    </section>
+
+    <!-- Prenatal Prep -->
+    <section class="section" style="position: relative; overflow: hidden; padding-bottom: 2rem;">
+
+        <div class="container">
+            <div class="nosici-box fade-up" style="background: var(--white); box-shadow: var(--shadow-lg);">
+                <div class="nosici-text">
+                    <h2 style="margin-bottom: 1.5rem;">Předporodní příprava ke kojení</h2>
+                    <p>Chcete být na příchod miminka dobře připravená? Ráda vás provedu přípravou ke kojení už během
+                        těhotenství. Během setkání si projdeme, jak se připravit na první dny po porodu, jak kojení
+                        funguje, proč je důležitý kontakt kůže na kůži, jak miminko správně přisávat, uklidnit a poznat,
+                        že pije dostatečně.</p>
+                    <p>Získáte také srozumitelné informace o mateřském mléce a praktické odpovědi na nejčastější otázky,
+                        abyste do začátků šla klidnější a jistější.</p>
+                </div>
+                <div class="nosici-img">
+                    <img src="Web Anicka 3/Obrazky/Biodynamika/hlavni ilustrce.png" alt="Příprava"
+                        style="width: 100%; border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="padding-top: 2rem;">
+        <div class="container">
+            <h2 class="text-center fade-up" style="margin-bottom: var(--spacing-lg);">Otázky, které možná trápi i vás
+            </h2>
+
+            <div class="faq-container">
+                <div class="faq-item fade-up">
+                    <div class="faq-question">1. Jaká je nejlepší poloha na kojení? <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Důležitější než poloha je přisátí miminka. Správné přisátí je asymetrické a hluboké. Asymetrické
+                        znamená, že je miminko přisáté odspodu, bradavka směřuje do horního podnebí, miminko má
+                        zabořenou bradičku hluboko v prsu, nos má volný cca na jeden prst. Z Vašeho pohledu bude vidět
+                        část dvorce shora, tvářičky se budou dotýkat rovnoměrně. Pusinka by měla být doširoka otevřená,
+                        rtíky ohrnuté, miminko bude v prsu tak hluboko, že neuvidíte jeho koutky. Doporučuji shlédnout
+                        videa, která jsou na www.mamila.sk k dispozici. Nebojte se vystlat polštáři, aby pro Vás byla
+                        poloha co nejvíc příjemná. Miminka se nejlépe daří přisát v kontaktu kůže na kůži.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-up">
+                    <div class="faq-question">2. Jak poznám, že moje miminko pije? <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Nejspolehlivějším ukazatelem vydatnosti pití miminka je tzv. pauza v bradě. Čím je pauza delší,
+                        tím větší lok miminko udělalo. Při hodnocení pití miminka je důležité brát v potaz, jak dlouho
+                        miminko vydrží pít, jak často se takto vydatně kojí, jak miminko prospívá, jak vypadá stolice či
+                        moč miminka. Pokud máte jakékoliv pochybnosti, ráda vám s vyhodnocením pití Vašeho děťátka
+                        pomohu.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-up">
+                    <div class="faq-question">3. Po porodu mám rozpraskané bradavky, čím je mám mazat? <i
+                            class="bi bi-chevron-down"></i></div>
+                    <div class="faq-answer">
+                        Rozpraskané bradavky po porodu nejsou v pořádku. Prsa mohou být citlivější, ale nemělo by
+                        docházet k jejich mechanickému poškozování a kojení by nemělo bolet. Pokud tomu tak je, je
+                        vhodné upravit přisátí miminka. Co se týče mazání, určitě nedoporučujeme žádné mastičky s
+                        obsahem lanolínu. Prsa potřebují přístup vzduchu a lanolín ránu překryje a ucpe. Na hojení
+                        můžete použít například výtažek z grepových semínek. Ideální je vždy řešit příčinu poškozeni či
+                        bolesti, doporučuji kontaktovat LP.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-up">
+                    <div class="faq-question">4. Jak moc ovlivní dudlík kojení? <i class="bi bi-chevron-down"></i></div>
+                    <div class="faq-answer">
+                        Dudlík na kojení skutečně vliv má. Miminko se při sání dudlíku učí zapojovat zcela jiné svaly,
+                        než které používá při kojení. Když miminko pak takto saje prs, mléko se z něj nedostává
+                        efektivně, prs se pořádně nevyprázdní a mléko, které v něm zůstane, může zablokovat mlékovody.
+                        Matčino tělo pak dostává signál, že je mléka příliš a jeho tvorba se pomalu snižuje.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-up">
+                    <div class="faq-question">5. Jak mám vysvětlit dítěti, že mě nesmí při kojení kousat? <i
+                            class="bi bi-chevron-down"></i></div>
+                    <div class="faq-answer">
+                        Důležité je podívat se na příčiny kousání. Často se jedná o signál, že je dítě nespokojené s
+                        rychlostí toku mléka. Rizikové jsou i nevhodné nádoby na pití (sosátka, brčka). Co se týče
+                        vysvětlování, je důležité komunikovat, že kousání je za Vaší hranicí, říct děťátku, že to bolí a
+                        že si nenecháte ubližovat.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-up">
+                    <div class="faq-question">6. Jak dlouho mohu mít miminko v šátku/nosítku? <i
+                            class="bi bi-chevron-down"></i></div>
+                    <div class="faq-answer">
+                        Pokud je miminko uvázané správně a nosítko je ergonomické, pak není potřeba koukat na čas.
+                        Nošení a kontakt s matkou jsou základní potřeby miminka, stimulují i správný psychomotorický
+                        vývoj. Ve vertikální poloze je důležité dbát na postavení nožiček (tvar M) a zádíček (tvar C).
+                    </div>
+                </div>
+            </div>
+
+            <p class="fade-up" style="margin-top: var(--spacing-md); font-weight: 600;">Vaše další dotazy
+                ráda zodpovím v rámci poradenství.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Anna Kreifová</h3>
+                    <p>Laktační poradenství a kraniosakrální biodynamika.</p>
+                    <p>IČO: 87440547</p>
+                    <p>Sídlo: Stará Lysá 95</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Rychlé odkazy</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="laktacni-poradenstvi.html">Laktační poradenství</a></li>
+                        <li><a href="kraniosakralni-biodynamika.html">Kraniosakrální biodynamika</a></li>
+                        <li><a href="cenik.html">Ceník</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+420739785181">+420 739 785 181</a></li>
+                        <li><a href="mailto:kreifova.anna@seznam.cz">kreifova.anna@seznam.cz</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Anna Kreifová. Všechna práva vyhrazena.</p>
+                <!-- Odkaz na tvůrce se obvykle dává sem -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
